@@ -2,6 +2,7 @@ from django_filters import rest_framework as filters
 from rest_framework import mixins, status, viewsets
 from rest_framework.response import Response
 from .serializers import PersonResponseSerializer, PersonRequestSerializer
+from .filter import PersonFilter
 from core.models import Person
 
 class PersonViewSet(
@@ -9,6 +10,9 @@ class PersonViewSet(
 ):
     serializer_class = PersonResponseSerializer
     filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = PersonFilter
+    ordering_fields=["nombre","edad"]
+    ordering=['nombre']
 
     def get_queryset(self):
         return Person.objects.all()

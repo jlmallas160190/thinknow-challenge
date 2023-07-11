@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}:{{PORT}}/api/v1/people/",
+					"raw": "{{HOST}}:{{PORT}}/api/v1/people/?limit=10&offeset=10&nombre=Ana",
 					"host": [
 						"{{HOST}}"
 					],
@@ -22,6 +22,20 @@
 						"v1",
 						"people",
 						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offeset",
+							"value": "10"
+						},
+						{
+							"key": "nombre",
+							"value": "Ana"
+						}
 					]
 				}
 			},
@@ -34,7 +48,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nombre\": \"Jorge\",\n    \"edad\": 33,\n    \"nacionalidad\": \"Ecuatoriana\",\n    \"sexo\": \"M\"\n}",
+					"raw": "{\n    \"nombre\": \"Ana\",\n    \"edad\": 21,\n    \"nacionalidad\": \"Ecuatoriana\",\n    \"sexo\": \"M\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
