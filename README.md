@@ -39,24 +39,13 @@ $ git clone git@github.com:jlmallas160190/thinknow-challenge.git
 
 $ ./pre_setup.sh
 ```
-3. [DEV-ENV] Run the following commands to allow HTTPS using a self-signed in local env:
-
-5. **(Optional)** [Configure PyCharm using Docker-compose file](https://docs.google.com/document/d/19YYeBZ6t88g_AGLCbVejOC5zC-oAL1T0xEyXmX_adXM/edit?usp=sharing)
-6. **(Ignore if you followed previous instructions)** Run all services with:
+4. **(Optional)** [Configure PyCharm using Docker-compose file](https://docs.google.com/document/d/19YYeBZ6t88g_AGLCbVejOC5zC-oAL1T0xEyXmX_adXM/edit?usp=sharing)
+5. **(Ignore if you followed previous instructions)** Run all services with:
 ```
 $ docker-compose -f docker-compose-dev.yml up -d
 ```
 7. Run post install script to apply migration to related services and load data:
 
-
-### Setup pre-commit hooks
-
-On your current host environment (or global environment) run:
-
-```
-$ pip install pre-commit
-$ pre-commit install
-```
 
 ## Install New Dependencies
 
