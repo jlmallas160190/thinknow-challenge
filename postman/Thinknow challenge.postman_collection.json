@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "9b8bcfa6-7952-41e9-9c99-76bad795137b",
+		"name": "Thinknow challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7244522"
+	},
+	"item": [
+		{
+			"name": "Person list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/people/",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Jorge\",\n    \"edad\": 33,\n    \"nacionalidad\": \"Ecuatoriana\",\n    \"sexo\": \"M\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/people/",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

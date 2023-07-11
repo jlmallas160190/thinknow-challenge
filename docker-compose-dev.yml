@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  api: &api
+    user: "container_user:container_user"
+    container_name: thinknow-api
+    image: thinknow/api:latest
+    command: manage runserver 0.0.0.0:8000
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./src:/opt/backend/
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    env_file:
+      - ./.env
+
+  db:
+    image: postgres:13.3
+    restart: unless-stopped
+    container_name: thinknow_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+      - ./utils/sql:/docker-entrypoint-initdb.d
+    environment:
+      - DEBUG=TRUE
+      - POSTGRES_HOST=thinknow
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_MULTIPLE_DATABASES=b2b
+
+volumes:
+  pgdata:
