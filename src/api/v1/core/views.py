@@ -6,7 +6,7 @@ from .filter import PersonFilter
 from core.models import Person
 
 class PersonViewSet(
-    mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet
+    mixins.ListModelMixin, mixins.RetrieveModelMixin,mixins.DestroyModelMixin, viewsets.GenericViewSet
 ):
     serializer_class = PersonResponseSerializer
     filter_backends = (filters.DjangoFilterBackend,)
@@ -25,3 +25,16 @@ class PersonViewSet(
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def update(self, request, pk=None, *args, **kwargs):
+        person = Person.objects.get(id=pk)
+        serializer = PersonRequestSerializer(
+            person, data=request.data
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self,request,*args,  **kwargs):
+        return self.destroy(request, *args, **kwargs)

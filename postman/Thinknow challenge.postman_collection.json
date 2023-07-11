@@ -42,6 +42,28 @@
 			"response": []
 		},
 		{
+			"name": "Person delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/people/3/",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"people",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Person crear",
 			"request": {
 				"method": "POST",
@@ -65,6 +87,37 @@
 						"api",
 						"v1",
 						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person editar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Santos\",\n    \"edad\": 69,\n    \"nacionalidad\": \"Ecuatoriana\",\n    \"sexo\": \"M\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}:{{PORT}}/api/v1/people/2/",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"people",
+						"2",
 						""
 					]
 				}

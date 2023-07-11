@@ -6,6 +6,7 @@ class PersonResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         read_only_fields = [
+            "id",
             "nombre",
             "nacionalidad",
             "sexo",
